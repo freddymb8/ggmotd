@@ -1,0 +1,779 @@
+<!doctype html>
+
+<html lang="en">
+
+<!-- Mirrored from cloud-gaming.co.uk/darkrp/rules.php by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Dec 2023 21:27:09 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="utf-8">
+    <title>DarkRP</title>
+    <link href="lib/css/cloud-spectre/css/cloud0387.css?v=122" type="text/css" rel="stylesheet" /> 
+    <link href="lib/css/cloud-spectre/css/stylee5bf.css?v=12" type="text/css" rel="stylesheet" /> 
+    <link href="lib/spectre-icons.min.css" type="text/css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+    <script src="lib/jquery-3.3.1.min.js"></script> 
+    <script>
+        updatePrice = function() {}
+        updatePrice2 = function() {}
+        const rate = 0.15;
+		const sale_rate = 1;
+        $(document).ready(function()
+        {
+            function newUpdatePrice(newValue) 
+            {
+                $("#tokens").val(newValue);
+                updatePound();
+            }
+            updatePrice = newUpdatePrice; 
+
+            function newUpdatePrice2(newValue, item) 
+            {
+                $("#donation").val(newValue);
+                $("#custom_donation").val(item);
+            }
+            updatePrice2 = newUpdatePrice2;
+
+            function updateTokens()
+            {
+                var gbp = parseFloat($("#gbp").val());
+                var total = (gbp / rate).toFixed(2);
+                $("#tokens").val(total);
+
+                var itemName = 'Tokens|' + total;
+                $("#item_name").val(itemName);
+            }
+            $(document).on("change keyup", "#gbp", updateTokens);
+
+            function updatePound()
+            {
+                var tokens = parseFloat($("#tokens").val());
+                var total = (tokens * rate).toFixed(2);
+                $("#gbp").val(total);
+
+                var itemName = 'Tokens|' + tokens;
+                $("#item_name").val(itemName);
+            }
+            $(document).on("change keyup", "#tokens", updatePound);
+
+            function updateCredits()
+            {
+                var gbp = parseFloat($("#gbp_job").val());
+				var total = (gbp / sale_rate).toFixed(2);
+                $("#credits").val(total);
+
+                var itemName = 'Credits|' + total;
+                $("#item_name_job").val(itemName);
+            }
+            $(document).on("change keyup", "#gbp_job", updateCredits);
+
+            function updateJobPound()
+            {
+                var credits = parseFloat($("#credits").val());
+				var total = (credits * sale_rate).toFixed(2);
+                $("#gbp_job").val(total);
+
+                var itemName = 'Credits|' + total;
+                $("#item_name_job").val(itemName);
+            }
+            $(document).on("change keyup", "#credits", updateJobPound);
+
+            function validateForm() {
+                var steamid = $("#steamid").val();
+                if (steamid === "" || !steamid.startsWith("STEAM_")) {
+                    alert("Please%20enter%20a%20valid%20steamid.%20Find%20your%20steamid%20here_%20https_/steamid.xyz/index.html");
+                    return false;
+                }
+            }
+        });
+    </script>
+</head>
+
+<header class="navbar">
+    <section class="navbar-section">
+        <a href="../index.html" class="navbar-brand px-2">
+            <img src="4821.png" height="50" alt="Cloud Gaming"></img>
+        </a>
+        <a href="rules.html" class="btn btn-link">Rules</a>
+        <a href="store.html" class="btn btn-link">Store</a>
+        <a href="dbans.html" class="btn btn-link">Bans</a>
+        <a href="punishments.html" class="btn btn-link">Punishments</a>
+        <a href="gangs.html" class="btn btn-link">Gangs</a>
+        <a href="staff.html" class="btn btn-link">Staff</a>
+        <div class="dropdown">
+            <a href="#" class="btn btn-link dropdown-toggle" tabindex="0">
+                Leaderboards<i class="icon icon-caret"></i>
+            </a>
+            <ul class="menu">
+                <li class="menu-item"><a href="leaderboard_money.html">Money</a></li>
+                <li class="menu-item"><a href="leaderboard_tokens.html">Tokens</a></li>
+                <li class="menu-item"><a href="leaderboard_events.html">Events</a></li>
+                <li class="menu-item"><a href="leaderboard_gangs.html">Gangs</a></li>
+            </ul>
+        </div>
+        <div class="dropdown">
+            <a href="#" class="btn btn-link dropdown-toggle" tabindex="0">
+                Arena<i class="icon icon-caret"></i>
+            </a>
+            <ul class="menu">
+                <li class="menu-item"><a href="arena_recent.html">Player Matches</a></li>
+                <li class="menu-item"><a href="arena_recenteb69.html?search=gang">Gang Matches</a></li>
+                <li class="menu-item"><a href="arena_top_players.html">Top Players</a></li>
+                <li class="menu-item"><a href="arena_top_gangs.html">Top Gangs</a></li>
+            </ul>
+        </div>
+    </section>
+	<section class="navbar-section">
+					<div class="px-2 mt-2">
+				<a href="https://steamcommunity.com/openid/login?openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&amp;openid.mode=checkid_setup&amp;openid.return_to=https%3A%2F%2Fcloud-gaming.co.uk%2Fdarkrp%2Fsteam_openid_process.php&amp;openid.realm=https%3A%2F%2Fcloud-gaming.co.uk&amp;openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select">
+					<img src="steam_login.png" height="35" alt="Login" />
+				</a>
+			</div>
+					</section>
+</header>
+                                    <body>
+    <div id="content">
+<div class="container">
+	<div class="column col-12 text-center">
+		<br>
+	</div>
+	<div class="columns col-oneline col-12 col-mx-auto">
+		<div class="column col-10 col-mx-auto">
+			<div class="card">
+				<div class="card-header">
+					<h3 class="panel-title text-center">Cloud Gaming DarkRP</h3>
+				</div>
+				<div class="card-body text-center">
+					<p>The rules are made to improve players experiences. Use common sense and do not try to loop hole
+						these
+						rules.
+						<br> Staff have the final say in the matter even if it is not stated in the rules. If you have
+						an issue with
+						a
+						staff member
+						report them on the forums.
+					</p>
+					<cite>- The Community Team</cite>
+				</div>
+			</div>
+			<div class="column col-12 text-center">
+				<br>
+			</div>
+			<div class="card">
+				<div class="card-header">
+					<h3 class="panel-title text-center">Player Conduct</h3>
+				</div>
+				<div class="card-body">
+					<div>
+						<h6>
+							<small class="label">
+								<strong>1.1 Disrespect</strong>
+							</small> Any kind of immoral language, discrimination or harrassment towards anyone will not
+							be tolerated.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>1.2 Chat</strong>
+							</small> Do not argue/rant in OOC/advert. All messages should be in English. Contain no
+							links (unless its
+							a
+							Cloud Gaming link). Contain no advertising of any sort.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>1.3 Punishment</strong>
+							</small> Avoiding punishment in any means is forbidden.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>1.4 Scamming</strong>
+							</small> You shall not attempt to or actually scam a person out of their money in any way
+							possible.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>1.5 Currency</strong>
+							</small> The act of selling any form of in game currency for real life money is not allowed.
+							You can also not use gambling systems to transfer tokens to your alt accounts.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>1.6 Spamming</strong>
+							</small> You must not use the microphone or chat to spam unintelligible noises or annoying
+							sounds / words.
+							When using advert
+							you must wait at least 2 minutes before sending out the same message again.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>1.7 Cheating</strong>
+							</small> Do not use third party software to gain an advantage over other players.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>1.8 Problems</strong>
+							</small> Do not attempt to cause problems within the community.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>1.9 Names</strong>
+							</small> You must only use english characters for your name with no excessive spacin,
+							unicode characters are not allowed.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>1.10 Exploiting</strong>
+							</small> You must not attempt to exploit or loophole intended server functions for personal
+							gain (this includes skills, tokens and in game money).
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>1.11 Admin Sits</strong>
+							</small> Do not disrupt admin sits. If an admin sit is taking place, you cannot do any
+							roleplay actions. E.g. Raiding a base while it’s being checked by a staff member.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>1.12 Politics</strong>
+							</small> Politics is strictly prohibited on this server. Any type of flags, text screens, in
+							game names relating directly or indirectly to current events, nations or conflicts from the
+							past or present are prohibited.
+						</h6>
+					</div>
+				</div>
+			</div>
+			<div class="column col-12 text-center">
+				<br>
+			</div>
+			<div class="card">
+				<div class="card-header">
+					<h3 class="panel-title text-center">Roleplay</h3>
+				</div>
+				<div class="card-body">
+					<div>
+						<h6>
+							<small class="label">
+								<strong>2.1 Random Death Match (RDM)</strong>
+							</small> Harming/killing another player must carry a reasonable ‘role-play reason’.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>2.2 New Life Rule (NLR)</strong>
+							</small> Forget about your previous life and do not return to your area of death for at
+							least 3 minutes.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>2.3 Meta Gaming</strong>
+							</small> The use of information gained in an out-of-character is not allowed.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>2.4 Fail RP</strong>
+							</small> To an extent, you must play in a realistic manner and roleplay with others.
+							You can only role play with your gang when your jobs are compatible. E.g. CP's can not
+							ally/defend anyone
+							but
+							CP's.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>2.5 Props</strong>
+							</small> Props surfing, climbing, blocking and general minging is not allowed. Do not
+							spawn/move props in
+							other players bases
+							or during raids, this includes cameras and textscreens.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>2.6 Explosives</strong>
+							</small> When using explosives you are held responsible for every player you kill or damage.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>2.7 Micspam</strong>
+							</small> Only hobos/jobs with build on streets permission can micspam and they must be stationary.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>2.8 Adverts</strong>
+							</small> Adverts are not to be used to contact another player specifically. They should be
+							used for RP
+							reasons
+							such as businesses.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>2.9 FearRP</strong>
+							</small> You must value and fear for your life. If you are being mugged by 3 people and you
+							are alone, you
+							must abide with
+							what they say.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>2.10 Job Abuse</strong>
+							</small> Do not change jobs to gain an advantage e.g. armor, ammo, etc.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>2.11 Checkpoints</strong>
+							</small> Checkpoints can be created by two or more CP's with a valid RP reason such as
+							searching people.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>2.12 KOS</strong>
+							</small> When KOSing someone you must give them atleast 5 seconds to respond (unless its a
+							base). This only applies when you are initiating the attack, not when defending yourself
+							from being arrested/killed. You should try to warn them via the interaction menu.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>2.13 Allies</strong>
+							</small> Up to 3 gangs can ally per base. Outside the property, you are no longer classed as
+							"allies".
+							This
+							means you cannot defend "allied" members who are attacked outside of the property unless
+							partaking in an
+							RP
+							activity (e.g. raid). You cannot be associated with or hired by more than 2 players outside
+							your base(this excludes same gang members). If you are associated with or hired by a player,
+							you must change your job title. E.g. /job w/player1 + player2.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>2.14 Taze/Stunstick</strong>
+							</small> You may not randomly taze/stunstick other players without a reasonable roleplay reason. E.g.
+							Using stunstick to get to an unreachable area.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>2.15 Kidnaps/Mugs</strong>
+							</small> To perform a kidnap/mug you must initiate this via the interaction menu. Kidnaps
+							can last up to 20 minutes. You must give someone atleast 10 seconds before KOSing them
+							(unless they threaten you). You must 15 minutes before performing this action on the same player again.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>2.16 Player Events</strong>
+							</small> Players may host small events within RP these must be held within the confines of
+							world buildings. Events may range from building to fighting, in the case of players fighting
+							they must follow NLR and are limited to a maximum size of 1 vs 1 no larger. These events
+							must enhance roleplay and must not hinder the experience for non-participants.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>2.17 Gazza</strong>
+							</small> 
+							When selling to Gazza you may KOS any CP coming within the enclosed zone.
+						</h6>
+					</div>
+				</div>
+			</div>
+			<div class="column col-12 text-center">
+				<br>
+			</div>
+			<div class="card">
+				<div class="card-header">
+					<h3 class="panel-title text-center">Properties</h3>
+				</div>
+				<div class="card-body">
+					<div>
+						<h6>
+							<small class="label">
+								<strong>3.1 Layout</strong>
+							</small> Layout Traps, airlocks, puzzles, mazes (3 turns or more) and confusing colours are not allowed. Ramp/stair/steps/headglitch defenses and layouts are not allowed. You may only no-collide props during the building phase or at a role-play only building. 
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>3.1B Tunnels/hallways</strong>
+							</small> Tunnel/hallway bases are not allowed. This is where you have a very long/multiple
+							hallways that
+							force
+							people to run through to enter the base.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>3.2 Entrances</strong>
+							</small> Jump/crouch/underground entrances are not allowed. Entrances must fit two people
+							side by side and
+							infront/behind (apart from the door
+							of the property). Entrances must not be hacker proof.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>3.3 Visibility</strong>
+							</small> The raider must be able to see you clearly [head + upper torso] and shoot back. No one way shooting. No
+							glow/world
+							glow.
+							All props/buttons/keypads/cameras/etc must be easily
+							visible. You may not build with props that make it hard to see around or hurt your eyes,
+							this includes very bright/very dark bases. Head glitching is not allowed.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>3.4 Fading Doors</strong>
+							</small> The max fading doors linked to keypads/entrances per base is 3 or 2 for PD/Terrorist HQ/Bank. You may not use your keybinds to open your fading doors. Delay must be 0 on entrances. Fading doors must not have a size smaller than storefront_template001a_bars.mdl
+						</h6>
+						<h6>
+							<h6>
+								<small class="label">
+									<strong>3.5 Property</strong>
+								</small> You may own up to two properties per base (must be adjacent/next to each other). When owning a property, you also own the pavement outside your property and the roof. You may build in this area however if an admin deems it necessarily big or ugly, it may be removed.
+							</h6>
+							<h6>
+								<small class="label">
+									<strong>3.6 Textscreens</strong>
+								</small> Building text screens are allowed (do not have entities while building). KOS
+								signs/lines are
+								allowed
+								but MUST be on the property. All textscreens on bases must be easily visible and have a
+								minimum size of 50.
+							</h6>
+							<h6>
+								<small class="label">
+									<strong>3.6B Roleplay Buildings</strong>
+								</small> Roleplay only building signs must only be used for bases that do not contain
+								money making entities/weapons this excludes bank and PD.
+							</h6>
+							<h6>
+								<small class="label">
+									<strong>3.7 Defending</strong>
+								</small> You must be added to the door to defend the property or have a gang sign
+								clearly visible. You can
+								KOS
+								people only if you have a textscreen. You cannot be added to the door/place a gang sign
+								during a raid. Defenders may not actively use the properties doors to their advantage, during a raid. Defenders cannot use explosives to defend their base. Defending from afar
+								is not allowed. You may come back to the base if it is being raided, but you may not
+								build a sniper’s nest opposite the base to defend it.
+							</h6>
+							<h6>
+								<small class="label">
+									<strong>3.8 Weapons</strong>
+								</small> You cannot use the weapon_crossbow (HL2 Crossbow), Minigun or Death Machine to defend a property.
+							</h6>
+							<h6>
+								<small class="label">
+									<strong>3.9 Shooting Windows</strong>
+								</small> Shooting windows must be atleast the size of cube05x1x05.mdl (landscape). You can not have a ceiling window that allows you to directly shoot from above the players head.
+							</h6>
+							<h6>
+								<small class="label">
+									<strong>3.10 Fountain</strong>
+								</small> Large buildings in or around the main fountain area are not allowed.
+							</h6>
+							<h6>
+								<small class="label">
+									<strong>3.11 Keypads</strong>
+								</small> Keypads must only be used for fading doors entrances. This means you should
+								have no keypads within your base once past the entrance fading doors. Keypads must be clearly visible and at eye level.
+							</h6>
+							<h6>
+								<small class="label">
+									<strong>3.12 Server Entities</strong>
+								</small> Your property/building must not block off/interfere with server entities (e.g. NPC's, Dumpsters).
+							</h6>
+							<h6>
+								<small class="label">
+									<strong>3.13 Gun Dealer</strong>
+								</small> Gun dealer bases, can have no more than 4 members residing there and must be selling guns to the public. 
+							</h6>
+							<h6>
+								<small class="label">
+									<strong>3.14 Bank</strong>
+								</small> Bankers can only base with jobs using "Act as Guard". Bankers may also not grow Drugs or any other illegal money making methods except from printers.
+							</h6>
+					</div>
+				</div>
+			</div>
+			<div class="column col-12 text-center">
+				<br>
+			</div>
+			<div class="card">
+				<div class="card-header">
+					<h3 class="panel-title text-center">Raiding</h3>
+				</div>
+				<div class="card-body">
+					<div>
+						<h6>
+							<small class="label">
+								<strong>4.1 Minge Raid</strong>
+							</small> Raiding a base which clearly has nothing inside is not allowed or has a "Roleplay
+							only building" sign is not allowed.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>4.2 PD</strong>
+							</small> Only terrorists and jobs with PD raiding ability can raid the PD. You must have a valid RP reason to raid PD (eg. breaking a gang member out). You can not counter-raid terrorists or interfere with their raid (unless you are CP).
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>4.3 Camping</strong>
+							</small> After raiding a base you must leave within 15 minutes.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>4.4 Checkpoints</strong>
+							</small> Checkpoints can be raided to dismantle their purpose or for a valid RP reason. Only
+							terrorists and custom jobs with PD raiding ability can raid checkpoints.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>4.5 Building</strong>
+							</small> You can not build or remove props during a raid. If a raid is taking place, you may
+							not leave the server until it is finished.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>4.6 CP Raid</strong>
+							</small> CP's are allowed to take control of the surrounding area during a raid. Prop block
+							is not
+							allowed,
+							but they can make the area AOS. A textscreen and simple props should be placed to express
+							the area e.g.
+							concrete_barrier001a.mdl.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>4.7 Timer</strong>
+							</small> You cannot raid the same base until 15 minutes has passed from the end of the raid. If you died during the raid (defending/attacking), you cannot go back until the raid has finished and your NLR is up. Raids can last no longer than 10 minutes.
+						</h6>
+					</div>
+				</div>
+			</div>
+			<div class="column col-12 text-center">
+				<br>
+			</div>
+			<div class="card">
+				<div class="card-header">
+					<h3 class="panel-title text-center">Turf Wars</h3>
+				</div>
+				<div class="card-body">
+					<div>
+						<h6>
+							<small class="label">
+								<strong>5.1 Alliances</strong>
+							</small> During turf wars you may not team with another gang, you must KOS everyone of an
+							opposing gang.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>5.2 Distance</strong>
+							</small> You may not attack into a turf war from an unreasonable distance/roof tops and water E.G if there is a turf war on the beach you may not snipe from the boat island. Once you have participated on turf, you are not allowed to leave the enclosed area.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>5.3 KOS</strong>
+							</small> You may KOS anyone in your line of sight within the enclosed area. The enclosed area on islands is the island and the water around it. You cannot KOS people on other islands/through tunnels. During terrorist/CP turfs you can only KOS the opposite team. 
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>5.4 Props</strong>
+							</small> No matter what job you are you may not spawn props within the turf war circle
+							and/or around the circle.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>5.5 Bases</strong>
+							</small> If the circle breaches into a world building you may not build within that
+							building.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>5.6 Explosives</strong>
+							</small> Explosives are prohibited in turf wars.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>5.7 Civil Protection</strong>
+							</small> Civil protection may not interfere with gang turf wars.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>5.8 Building</strong>
+							</small> You may not use buildings to your advantage. 
+						</h6>
+					</div>
+				</div>
+			</div>
+			<div class="column col-12 text-center">
+				<br>
+			</div>
+			<div class="card">
+				<div class="card-header">
+					<h3 class="panel-title text-center">Protect The VIP</h3>
+				</div>
+				<div class="card-body">
+					<div>
+						<h6>
+							<small class="label">
+								<strong>6.1 Alliances</strong>
+							</small> During VIPs wars you may ally with gangs you are currently basing with, you are not allowed to kill allied VIPs. This is only active within your property. 
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>6.2 Civil Protection</strong>
+							</small> Civil protection may not interfere with VIP wars.
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>6.3 New Life Rule</strong>
+							</small> New life rule is not applicable when you are attacking (but does apply to defenders).
+						</h6>
+						<h6>
+							<small class="label">
+								<strong>6.4 Bases</strong>
+							</small> The defending property must be fully accessible, it must follow all basing rules. Building and "Role play" bases do not apply. 
+						</h6>
+					</div>
+				</div>
+			</div>
+			<div class="column col-12 text-center">
+				<br>
+			</div>
+			<div class="card">
+				<div class="card-header">
+					<h3 class="panel-title text-center">Jobs</h3>
+					<p class="text-center"> All jobs have whether they can raid, mug or kidnap in their description.</p>
+				</div>
+				<div class="card-body">
+					<div>
+						<h5>Mayor</h5>
+						<ul>
+							<li>Laws/agenda must be reasonable and not break any rules.</li>
+							<li>You do not partake in raids or dangerous activities.</li>
+							<li>You can authorise civil protection to build check points.</li>
+						</ul>
+						<h5>Civil Protection</h5>
+						<ul>
+							<li>You must attempt to arrest people rather then killing them unless there is a law stating otherwise (E.g. Weapons visible = KOS/AOS)</li>
+							<li>You must follow the law.</li>
+							<li>You must follow the Mayors orders (within reason).</li>
+							<li>You must have a valid reason to search a player.</li>
+							<li>You cannot raid without a warrant.</li>
+							<li>You can create checkpoints for valid RP reasons. You use a maxium of 2 fading doors.</li>
+							<li>You are allowed to AOS anywhere in PD (apart from lobby) by default. KOS/AOS within PD (including lobby) can be dictated by current laws.</li>
+							<li>Checkpoints can not be connected to any of the paths from the main spawn.</li>
+							<li>You must have a valid reason to arrest/warrant/want someone (e.g. see printer sparks, or
+								see them
+								commit
+								a
+								crime).</li>
+							<li>You may only raid with CP jobs. Underground Mutants should not be arrested only killed.
+							</li>
+							<li>You may not camp or cloak near Gazza. This counts as waiting within the enclosed area or watching the NPC.</li>
+							<li>PD can have maxium 2 fading doors for entering the base.</li>
+						</ul>
+						<h5>S.W.A.T Sniper</h5>
+						<ul>
+							<li>You must follow civil protection rules.</li>
+							<li>You may KOS over AOS with a valid reason. E.g. bank raid/guns out in public.</li>
+							<li>You may build sniper towers within checkpoints/connected to checkpoints (raidable).</li>
+						</ul>
+						<h5>Gangster/Mob Boss</h5>
+						<ul>
+							<li>You cannot mug solo, you must be in a group with other gangsters (2 or more).</li>
+							<li>Agenda must be reasonable and not break rules.</li>
+							<li>You may mug for a maximum of £10000.</li>
+							<li>You may only raid the PD to break someone out with a mob boss.</li>
+						</ul>
+						<h5>Secret Service</h5>
+						<ul>
+							<li>Do not partake in civil protection activities (enforcing the law).</li>
+							<li>Your only duty is to keep the Mayor safe.</li>
+						</ul>
+						<h5>Terrorists</h5>
+						<ul>
+							<li>There must be a goal to your actions e.g. robbing the locker. Killing random people is not a valid goal.</li>
+							<li>Terrorist HQ can have maximum 2 fading doors for entering the base.</li>
+							<li>Terrorists may defend each other.</li>
+							<li>Terrorists may only base with other terrorists.</li>
+							<li>Terrorists are not associated with their gang while playing as terrorist (apart from Gang Turfs).</li>
+							<li>Terrorists are allowed to partake in Gang Turfs.</li>
+						</ul>
+						<h5>Hacker</h5>
+						<ul>
+							<li>You can only raid with your employer.</li>
+						</ul>
+						<h5>Underground Mutant</h5>
+						<ul>
+							<li>You are KOS to everyone.</li>
+							<li>You KOS anyone who enters the underground.</li>
+							<li>You cannot KOS people above ground.</li>
+							<li>You can only use melee weapons.</li>
+							<li>You may kill other mutants (only underground).</li>
+							<li>You may not spawn trap mutants.</li>
+							<li>You do not need to abide to NLR..</li>
+						</ul>
+						<h5>Hobo</h5>
+						<ul>
+							<li>You may base on the street but you may only have 1 fading door.</li>
+							<li>Your building must not block/connect to any property entrances.</li>
+							<li>You are allowed to print.</li>
+							<li>Your property may not be excessively big, a member of staff will deem when it is too
+								big.</li>
+							<li>When "micspamming/singing" you must be stationary and have a sign indicating what you
+								are doing.</li>
+						</ul>
+						<h5>Medic</h5>
+						<ul>
+							<li>You can be hired to base.</li>
+							<li>You cannot help defend the base.</li>
+							<li>You cannot possess/use any weapon.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="column col-12 text-center">
+				<br>
+			</div>
+			<div class="card">
+				<div class="card-header">
+					<h3 class="panel-title text-center">Exploiting</h3>
+					<p class="text-center"> This is a extended version of the exploiting rule, explaining some of the way people may try to exploit on the server. This list contains most but is not limited to just this list. This list may be edited at anytime so be sure to keep yourself up to date on the lastest updates.</p>
+				</div>
+				<div class="card-body">
+					<div>
+						<h5>General</h5>
+						<ul>
+							<li>Bypassing mute via in game commands.</li>
+							<li>Having a custom job command with pre-set in game commands. </li>
+							<li>Placing props in skybox.</li>
+							<li>Gaining skill progress from out of rp activities.</li>
+							<li>Switching weapons to avoid animations to gain an advantage in combat.</li>
+							<li>Bypassing demotion in any way.</li>
+							<li>Using hidden console commands.</li>
+							<li>Skill abuse.</li>
+						</ul>
+						<h5>Criminal</h5>
+						<ul>
+							<li>Inflating prices of weed for financial gain.</li>
+							<li>Using camo to mug someone.</li>
+							<li>Putting a hit on yourself to negate wanted status.</li>
+							<li>Bypassing restrictions to complete deliveries.</li>
+							<li>Use of in-game commands to set hits.</li>
+							<li>Avoiding wanted system.</li>
+							<li>Standing within NPCs to avoid being arrested/killed.</li>
+						</ul>
+						<h5>Turf</h5>
+						<ul>
+							<li>Bypassing NLR.</li>
+							<li>Using cloak to gain an advantage.</li>
+							<li>Contesting turf from underground.</li>
+							<li>Abusing the mutant job in turf.</li>
+							<li>Killing yourself outside turf zone to avoid turf NLR and regain health and armour.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="column col-12 text-center">
+				<br>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<script>(function(){var js = "window['__CF$cv$params']={r:'837a7cfaecf76641',t:'MTcwMjkzNDgyOS4zMjgwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='../cdn-cgi/challenge-platform/h/g/scripts/jsd/74bd6362/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body>
+
+<!-- Mirrored from cloud-gaming.co.uk/darkrp/rules.php by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Dec 2023 21:27:19 GMT -->
+</html>
